@@ -2,8 +2,6 @@ public class PlateauDeJeu{
 	private Piece[] Echequier;
 	private static final int NB_CASES=64;
 	
-
-
 	public PlateauDeJeu (){
 		this.Echequier=new Piece[NB_CASES];
 		this.init();

@@ -7,7 +7,7 @@ public class Tour  extends Piece{
 	}
 
 	public boolean deplPossible(Coordonees c){
-		if(this.getCoordonnees().abcisse!=c.abcisse && this.getCoordonnees().ordonnee==c.ordonnee || this.getCoordonnees().abcisse==c.abcisse && this.getCoordonnees().ordonnee!=c.ordonnee){
+		if(this.getCoordonnees().getAbcisse!=c.abcisse && this.getCoordonnees()/getOrdonnee==c.ordonnee || this.getCoordonnees().getAbcisse==c.abcisse && this.getCoordonnees().getOrdonnee!=c.ordonnee){
 			return true;
 		}
 		else{

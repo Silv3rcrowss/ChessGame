@@ -1,5 +1,3 @@
-package echec;
-
 public class Coordonnees{
 	private int abcisse;
 	private int ordonnee;//peut etre entre 0 et 7
@@ -16,6 +14,8 @@ public class Coordonnees{
 	public Coordonnees(Coordonnees c){
 		this(c.getAbcisse(),c.getOrdonnee());
 	}
+
+	
 
 	public void setAbcisse(int x){
 		this.abcisse=x;
@@ -36,9 +36,19 @@ public class Coordonnees{
 		return abcisse*8+ordonnee;
 	}
 
-	public void getDiagD(int x){
-		@SuppressWarnings("unused")
-		Coordonnees c=new Coordonnees(this.getAbcisse(),this.getOrdonnee());
-
+	public Coordonnees getDiagD(int x){
+		Coordonnees c = new Coordonnees(this.getAbcisse()-x,this.getOrdonnee()+x);
+		return c;
 	}
+	
+	public Coordonnees getDiagG(int x){
+		Coordonnees c=new Coordonnees(this.getAbcisse()-x,this.getOrdonnee()-x);
+		return c;
+	}
+
+
+	public boolean equals(Coordonnees c){
+		if(this.abcisse==c.getAbcisse()&& this.ordonnee==c.getOrdonnee())
+			return true;
+}	
 }

@@ -1,4 +1,4 @@
-public abstract Piece{
+public abstract class Piece{
 	private boolean estNoir;
 	private Coordonnees c;
 
@@ -6,7 +6,7 @@ public abstract Piece{
 		this(p.getEstNoir(),p.getCoordonnees());
 	}
 
-	public Piece(boolean noir,boolean sud,Coordonnees c){
+	public Piece(boolean noir,Coordonnees c){
 		this.estNoir=noir;
 		this.c=new Coordonnees(c);
 	}
@@ -15,17 +15,15 @@ public abstract Piece{
 		return this.c;
 	}
 
-	public getEstNoir(){
+	public boolean getEstNoir(){
 		return this.estNoir;
 	}
 
-	public void setCoordonnes(Coordonnees c){
+	public void setCoordonnees(Coordonnees c){
 		this.c=new Coordonnees(c);
 	}
 
-	public abstract deplPossible(){
-		
-	}
+	public abstract boolean deplPossible(Coordonnees c,PlateauDeJeu p);
 
 	//passer toutes les pieces en
 }

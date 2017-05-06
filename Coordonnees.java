@@ -1,32 +1,34 @@
-public class Coordonees{
+package echec;
+
+public class Coordonnees{
 	private int abcisse;
 	private int ordonnee;//peut etre entre 0 et 7
 
-	public Coordonees(){
+	public Coordonnees(){
 		this(0,0);
 	}
 
-	public Coordonees(int i,int j){
+	public Coordonnees(int i,int j){
 		abcisse=i;
 		ordonnee=j;
 	}
 
-	public Coordonees(Coordonees c){
+	public Coordonnees(Coordonnees c){
 		this(c.getAbcisse(),c.getOrdonnee());
 	}
 
-	public setAbcisse(int x){
+	public void setAbcisse(int x){
 		this.abcisse=x;
 	}
 
-	public setOrdonnee(int x){
+	public void setOrdonnee(int x){
 		this.ordonnee=x;
 	}
-	public getAbcisse(){
+	public int getAbcisse(){
 		return this.abcisse;
 	}
 
-	public getOrdonnee(){
+	public int getOrdonnee(){
 		return this.ordonnee;
 	}
 
@@ -34,13 +36,9 @@ public class Coordonees{
 		return abcisse*8+ordonnee;
 	}
 
-	public getDiagD(int x){
-		c=new Coordonees(this.getAbcisse(),this.getOrdonnee());
+	public void getDiagD(int x){
+		@SuppressWarnings("unused")
+		Coordonnees c=new Coordonnees(this.getAbcisse(),this.getOrdonnee());
 
-	}
-
-	public boolean equals(Coordonees c){
-		if(this.abcisse==c.getAbcisse()&& this.ordonnee==c.getOrdonnee())
-			return true;
 	}
 }

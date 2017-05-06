@@ -1,20 +1,18 @@
-package echec;
-
 public class Tour extends Piece{
 
-	public Tour(boolean noir, Coordonees c) {
+	public Tour(boolean noir, Coordonnees c) {
 		super(noir, c);
 	}
 
-	public boolean deplPossible(PlateauDeJeu j,Coordonees c){
+	public boolean deplPossible(Coordonnees c,PlateauDeJeu j){
 
-		if(this.getCoordonnees().getAbcisse()!=c.abcisse && this.getCoordonnees().getOrdonnee()==c.ordonnee || this.getCoordonnees().getAbcisse()==c.abcisse && this.getCoordonnees().getOrdonnee()!=c.ordonnee){
+		if(this.getCoordonnees().getAbcisse()!=c.getAbcisse() && this.getCoordonnees().getOrdonnee()==c.getOrdonnee() || this.getCoordonnees().getAbcisse()==c.getAbcisse() && this.getCoordonnees().getOrdonnee()!=c.getOrdonnee()){
 			if(j.getCase(c)==null){
 				return true;
 			}
 			
 			else if(j.getCase(c)!=null){
-				if(j.getCase(c).estNoir==this.estNoir){
+				if(j.getCase(c).getEstNoir()==this.getEstNoir()){
 					return false;
 				}
 				else{

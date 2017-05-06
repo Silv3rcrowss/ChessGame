@@ -2,6 +2,8 @@ public class PlateauDeJeu{
 	private Piece[] Echequier;
 	private static final int NB_CASES=64;
 	
+
+
 	public PlateauDeJeu (){
 		this.Echequier=new Piece[NB_CASES];
 		this.init();
@@ -32,24 +34,4 @@ public class PlateauDeJeu{
 		Echequier[p.getCoordonnees().getIndice()]=null;
 		Echequier[c.getIndice()].setCoordonnees(c);
 	}
-
-	public String toString(){
-		int i=0;
-		int j=0;
-		String s;
-		s=(" **** **** **** **** **** **** **** ****\n");
-		for(i=0;i<8;i++){
-			for(j=0;j<8;j++){
-				Coordonnees c =new Coordonnes(i,j);
-				if(this.getCase(c)==Pion){
-					s=s+("|Pion|");
-				}
-				else{
-					s=s+("|    |");
-				{
-			}
-			s=s+("\n **** **** **** **** **** **** **** ****\n");
-		}
-	}
-}
 }

@@ -38,4 +38,9 @@ public class Coordonees{
 		c=new Coordonees(this.getAbcisse(),this.getOrdonnee());
 
 	}
+
+	public boolean equals(Coordonees c){
+		if(this.abcisse==c.getAbcisse()&& this.ordonnee==c.getOrdonnee())
+			return true;
+	}
 }

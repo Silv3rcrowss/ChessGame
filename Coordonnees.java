@@ -24,6 +24,12 @@ public class Coordonnees{
 	public void setOrdonnee(int x){
 		this.ordonnee=x;
 	}
+	
+	public void setCoordonnees(int i,int j){
+		this.setAbcisse(i);
+		this.setOrdonnee(j);
+	}
+	
 	public int getAbcisse(){
 		return this.abcisse;
 	}

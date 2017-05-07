@@ -9,36 +9,40 @@ public class Pion extends Piece{
 
 	public boolean deplPossible(Coordonnees c,PlateauDeJeu p){
 		Coordonnees b=this.getCoordonnees();
-		if(this.estAuSud){
-			if(c.getAbcisse()<=(b.getAbcisse()-2) && c.getOrdonnee()==b.getOrdonnee()){
-				if(!aBouge || c.getAbcisse()==b.getAbcisse()-1){
-					aBouge=true;
-					return true;
-				}
-				else 
-					return false;
-				}
-			else if(c.equals(b.getDiagD(1)) || c.equals(b.getDiagG(1))&& p.getCase(c)!=null){
-					return true;
-				}
-			else
-				return false;
-		}
-		else {
-			if(c.getAbcisse()>=(b.getAbcisse()+2)&& c.getOrdonnee()==b.getOrdonnee()&& p.getCase(c)==null){
-				if(!aBouge || c.getAbcisse()==b.getAbcisse()+1){
-					aBouge=true;
+		if(c.coordonneesValides()){
+			if(this.estAuSud){
+				if(c.getAbcisse()<=(b.getAbcisse()-2) && c.getOrdonnee()==b.getOrdonnee() && p.getCase(c)==null){
+					if(!aBouge || c.getAbcisse()==(b.getAbcisse()-1)){
+						aBouge=true;
+						return true;
+					}
+					else 
+						return false;
+					}
+				else if(c.equals(b.getDiagD(1)) || c.equals(b.getDiagG(1))&& p.getCase(c)!=null){
+					//condition piece ennemie
 					return true;
 				}
 				else
 					return false;
 			}
-			else if(c.equals(b.getDiagD(-1)) || c.equals(b.getDiagG(-1))&& p.getCase(c)!=null)
-				return true;
-			else
-				return false;
+			else {
+				if(c.getAbcisse()>=(b.getAbcisse()+2)&& c.getOrdonnee()==b.getOrdonnee()&& p.getCase(c)==null){
+					if(!aBouge || c.getAbcisse()==b.getAbcisse()+1){
+						aBouge=true;
+						return true;
+					}
+					else
+						return false;
+				}
+				else if(c.equals(b.getDiagD(-1)) || c.equals(b.getDiagG(-1))&& p.getCase(c)!=null)
+					return true;
+				else
+					return false;
 			
+				}
 		}
+		return false;
 	}
 
 

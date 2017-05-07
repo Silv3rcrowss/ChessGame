@@ -7,7 +7,7 @@ public abstract class Piece{
 	}
 
 	public Piece(boolean noir,Coordonnees c){
-		this.estNoir=noir;
+		this.setEstNoir(noir);
 		this.c=new Coordonnees(c);
 	}
 
@@ -24,6 +24,10 @@ public abstract class Piece{
 	}
 
 	public abstract boolean deplPossible(Coordonnees c,PlateauDeJeu p);
+
+	public void setEstNoir(boolean estNoir) {
+		this.estNoir = estNoir;
+	}
 
 	//passer toutes les pieces en
 }

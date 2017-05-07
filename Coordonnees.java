@@ -1,6 +1,6 @@
 public class Coordonnees{
 	private int abcisse;
-	private int ordonnee;//peut etre entre 0 et 7
+	private int ordonnee;/*peut etre entre 0 et 7*/
 
 	public Coordonnees(){
 		this(0,0);
@@ -35,6 +35,12 @@ public class Coordonnees{
 	public int getIndice(){
 		return abcisse*8+ordonnee;
 	}
+	
+	public boolean coordonneesValides(){
+		if(this.abcisse >=0 && this.abcisse<=7 && this.ordonnee>=0 && this.ordonnee<=7)
+			return true;
+		return false;
+	}
 
 	public Coordonnees getDiagD(int x){
 		Coordonnees c = new Coordonnees(this.getAbcisse()-x,this.getOrdonnee()+x);
@@ -50,5 +56,6 @@ public class Coordonnees{
 	public boolean equals(Coordonnees c){
 		if(this.abcisse==c.getAbcisse()&& this.ordonnee==c.getOrdonnee())
 			return true;
+		return false;
 }	
 }

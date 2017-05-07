@@ -9,18 +9,14 @@ public class Dame extends Piece{
 
 	@Override
 	public boolean deplPossible(Coordonnees c, PlateauDeJeu p) {
-		boolean flag;
+
 		Fou f= new Fou(this.getEstNoir(),this.getCoordonnees());
 		Tour t= new Tour(this.getEstNoir(),this.getCoordonnees());
 		
-		flag=t.deplPossible(c, p);
-		if(flag){
-			flag=f.deplPossible(c, p);
-		}
-		else{
-			return false;
+		if(t.deplPossible(c, p) && f.deplPossible(c, p)){
+			return true;
 		}
 		
-		return flag;
+		return false;
 	}
 }

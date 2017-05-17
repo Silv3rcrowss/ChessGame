@@ -1,6 +1,6 @@
 public class Coordonnees{
 	private int abcisse;
-	private int ordonnee;//peut etre entre 0 et 7
+	private int ordonnee;/*peut etre entre 0 et 7*/
 
 	public Coordonnees(){
 		this(0,0);
@@ -11,17 +11,11 @@ public class Coordonnees{
 		ordonnee=j;
 	}
 
-	public boolean CoordonneesValide(){
-		if((this.abcisse>=0 && this.abcisse<8) && (this.ordonnee>=0 && this.ordonnee<8)){
-			return true;
-	}
-		
-		return false;
-	}
-
 	public Coordonnees(Coordonnees c){
 		this(c.getAbcisse(),c.getOrdonnee());
 	}
+
+	
 
 	public void setAbcisse(int x){
 		this.abcisse=x;
@@ -30,6 +24,12 @@ public class Coordonnees{
 	public void setOrdonnee(int x){
 		this.ordonnee=x;
 	}
+	
+	public void setCoordonnees(int i,int j){
+		this.setAbcisse(i);
+		this.setOrdonnee(j);
+	}
+	
 	public int getAbcisse(){
 		return this.abcisse;
 	}
@@ -58,86 +58,10 @@ public class Coordonnees{
 		return c;
 	}
 	
-	public boolean appatienDiagDB(Coordonnees co){
-		boolean flag=false;
-		Coordonnees c=new Coordonnees(this);
-		int i,j;
-		
-		while(flag==false && c.coordonneesValides()){
-			i=c.getAbcisse()+1;
-			j=c.getOrdonnee()+1;
-			
-			c.setAbcisse(i);
-			c.setOrdonnee(j);
-			
-			if(c==co){
-				flag=true;
-			}
-		}	
-		return flag;
-	}
-	
-	public boolean appatienDiagDH(Coordonnees co){
-		boolean flag=false;
-		Coordonnees c=new Coordonnees(this);
-		int i,j;
-		
-		while(flag==false && c.coordonneesValides()){
-			i=c.getAbcisse()-1;
-			j=c.getOrdonnee()+1;
-			
-			c.setAbcisse(i);
-			c.setOrdonnee(j);
-			
-			if(c==co){
-				flag=true;
-			}
-		}
-		return flag;
-	}
-		
-	public boolean appatienDiagGB(Coordonnees co){
-		boolean flag=false;
-		Coordonnees c=new Coordonnees(this);
-		int i,j;
-		
-		while(flag==false && c.coordonneesValides()){
-			i=c.getAbcisse()+1;
-			j=c.getOrdonnee()-1;
-			
-			c.setAbcisse(i);
-			c.setOrdonnee(j);
-			
-			if(c==co){
-				flag=true;
-			}
-		}
-		return flag;
-	}
-	
-	public boolean appatienDiagGH(Coordonnees co){
-		boolean flag=false;
-		Coordonnees c=new Coordonnees(this);
-		int i,j;
-		
-		while(flag==false && c.coordonneesValides()){
-			i=c.getAbcisse()-1;
-			j=c.getOrdonnee()-1;
-			
-			c.setAbcisse(i);
-			c.setOrdonnee(j);
-			
-			if(c==co){
-				flag=true;
-			}
-		}
-		
-		return flag;
-	}
-	
-	public boolean equals(Coordonnees c){
-		if(this.abcisse==c.getAbcisse()&& this.ordonnee==c.getOrdonnee())
-			return true;
+
+	public boolean equals(Object o){
+		if(o instanceof Coordonnees)
+			return (this.abcisse==((Coordonnees) o).getAbcisse()&& this.ordonnee==((Coordonnees) o).getOrdonnee());
 		return false;
-}
+}	
 }

@@ -25,7 +25,9 @@ public class PlateauDeJeu{
 	}
 
 	public Piece getCase(Coordonnees c){
-		return Echequier[c.getIndice()];
+		if(c.coordonneesValides())
+			return Echequier[c.getIndice()];
+		return null;
 	}
 
 	public void setCase(Coordonnees c,Piece p){
@@ -35,7 +37,7 @@ public class PlateauDeJeu{
 	}
 	
 	public void deplPiece(Coordonnees c,Piece p){
-		if(p.deplPossible(c, this)&& (!c.equals(p.getCoordonnees())))
+		if( c.coordonneesValides() && p.deplPossible(c, this)&& (!c.equals(p.getCoordonnees())))
 			this.setCase(c,p);
 	}
 	

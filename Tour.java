@@ -1,5 +1,3 @@
-package echec;
-
 public class Tour extends Piece{
 
 	public Tour(boolean noir, Coordonnees c) {

@@ -9,7 +9,16 @@ public class Roi extends Piece{
 
 	@Override
 	public boolean deplPossible(Coordonnees c, PlateauDeJeu p) {
-		// TODO Auto-generated method stub
+		int j= this.getCoordonnees().getAbcisse();
+		int i= this.getCoordonnees().getOrdonnee();
+		Coordonnees co = new Coordonnees();
+		
+		if(c.equals(co.setCoordonnees(i+1, j)) || c.equals(co.setCoordonnees(i+1, j+1))
+		|| c.equals(co.setCoordonnees(i+1, j-1)) || c.equals(co.setCoordonnees(i-1, j-1))
+		|| c.equals(co.setCoordonnees(i, j-1)) || c.equals(co.setCoordonnees(i, j+1))
+		|| c.equals(co.setCoordonnees(i-1, j+1)) || c.equals(co.setCoordonnees(i-1, j))){
+			return true;
+		}
 		return false;
 	}
 }

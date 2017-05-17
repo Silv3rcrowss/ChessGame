@@ -16,9 +16,8 @@ public class Pion extends Piece{
 						aBouge=true;
 						return true;
 					}
-					else 
-						return false;
-					}
+					return false;
+				}
 				else if(c.equals(b.getDiagD(1)) || c.equals(b.getDiagG(1))&& p.getCase(c)!=null){
 					//condition piece ennemie
 					return true;

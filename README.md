@@ -1,2 +1,3 @@
 # ChessGame
-Jeu D'echec Java
+Java Project
+

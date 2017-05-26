@@ -51,7 +51,7 @@ public class PlateauDeJeu{
 			for(j=0;j<8;j++){
 				Coordonnees c =new Coordonnees(i,j);
 				if(this.getCase(c)!=null){
-					s=s+("|Pion|");
+					s=s+("|")+this.getCase(c).toString()+("|");
 				}
 				else{
 					s=s+("|    |");

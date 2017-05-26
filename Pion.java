@@ -43,5 +43,13 @@ public class Pion extends Piece{
 		return false;
 	}
 
-
+	public String toString(){
+		if(this.getEstNoir()==true){
+			return ("NPio");
+		}
+		if(this.getEstNoir()==false){
+			return ("BPio");
+		}
+		return null;
+	}
 }

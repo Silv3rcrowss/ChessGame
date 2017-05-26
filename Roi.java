@@ -21,4 +21,14 @@ public class Roi extends Piece{
 		}
 		return false;
 	}
+	
+		public String toString(){
+		if(this.getEstNoir()==true){
+			return ("NRoi");
+		}
+		if(this.getEstNoir()==false){
+			return ("BRoi");
+		}
+		return null;
+	}
 }

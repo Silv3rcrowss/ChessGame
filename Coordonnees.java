@@ -14,9 +14,7 @@ public class Coordonnees{
 	public Coordonnees(Coordonnees c){
 		this(c.getAbcisse(),c.getOrdonnee());
 	}
-
 	
-
 	public void setAbcisse(int x){
 		this.abcisse=x;
 	}
@@ -59,6 +57,82 @@ public class Coordonnees{
 		return c;
 	}
 	
+	public boolean appatienDiagDB(Coordonnees co){
+		boolean flag=false;
+		Coordonnees c=new Coordonnees(this);
+		int i,j;
+		
+		while(flag==false && c.coordonneesValides()){
+			i=c.getAbcisse()+1;
+			j=c.getOrdonnee()+1;
+			
+			c.setAbcisse(i);
+			c.setOrdonnee(j);
+			
+			if(c==co){
+				flag=true;
+			}
+		}	
+		return flag;
+	}
+	
+	public boolean appatienDiagDH(Coordonnees co){
+		boolean flag=false;
+		Coordonnees c=new Coordonnees(this);
+		int i,j;
+		
+		while(flag==false && c.coordonneesValides()){
+			i=c.getAbcisse()-1;
+			j=c.getOrdonnee()+1;
+			
+			c.setAbcisse(i);
+			c.setOrdonnee(j);
+			
+			if(c==co){
+				flag=true;
+			}
+		}
+		return flag;
+	}
+		
+	public boolean appatienDiagGB(Coordonnees co){
+		boolean flag=false;
+		Coordonnees c=new Coordonnees(this);
+		int i,j;
+		
+		while(flag==false && c.coordonneesValides()){
+			i=c.getAbcisse()+1;
+			j=c.getOrdonnee()-1;
+			
+			c.setAbcisse(i);
+			c.setOrdonnee(j);
+			
+			if(c==co){
+				flag=true;
+			}
+		}
+		return flag;
+	}
+	
+	public boolean appatienDiagGH(Coordonnees co){
+		boolean flag=false;
+		Coordonnees c=new Coordonnees(this);
+		int i,j;
+		
+		while(flag==false && c.coordonneesValides()){
+			i=c.getAbcisse()-1;
+			j=c.getOrdonnee()-1;
+			
+			c.setAbcisse(i);
+			c.setOrdonnee(j);
+			
+			if(c==co){
+				flag=true;
+			}
+		}
+		
+		return flag;
+	}
 
 	public boolean equals(Object o){
 		if(o instanceof Coordonnees)

@@ -1,5 +1,3 @@
-package echec;
-
 public class Fou extends Piece{
 
 	public Fou(boolean noir, Coordonnees c) {

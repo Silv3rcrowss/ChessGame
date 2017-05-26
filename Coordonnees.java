@@ -14,7 +14,9 @@ public class Coordonnees{
 	public Coordonnees(Coordonnees c){
 		this(c.getAbcisse(),c.getOrdonnee());
 	}
+
 	
+
 	public void setAbcisse(int x){
 		this.abcisse=x;
 	}
@@ -23,10 +25,9 @@ public class Coordonnees{
 		this.ordonnee=x;
 	}
 	
-	public Coordonnees setCoordonnees(int i, int j) {
-		this.abcisse=i;
-		this.ordonnee=j;
-		return this;
+	public void setCoordonnees(int i,int j){
+		this.setAbcisse(i);
+		this.setOrdonnee(j);
 	}
 	
 	public int getAbcisse(){
@@ -62,21 +63,21 @@ public class Coordonnees{
 		Coordonnees c=new Coordonnees(this);
 		int i,j;
 		
-		while(flag==false && c.coordonneesValides()){
+		while(!flag && c.coordonneesValides()){
 			i=c.getAbcisse()+1;
 			j=c.getOrdonnee()+1;
 			
 			c.setAbcisse(i);
 			c.setOrdonnee(j);
 			
-			if(c==co){
+			if(c.equals(co)){
 				flag=true;
 			}
 		}	
 		return flag;
-	}
-	
-	public boolean appatienDiagDH(Coordonnees co){
+		}
+		
+		public boolean appatienDiagDH(Coordonnees co){
 		boolean flag=false;
 		Coordonnees c=new Coordonnees(this);
 		int i,j;

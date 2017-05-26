@@ -25,9 +25,10 @@ public class Coordonnees{
 		this.ordonnee=x;
 	}
 	
-	public void setCoordonnees(int i,int j){
-		this.setAbcisse(i);
-		this.setOrdonnee(j);
+	public Coordonnees setCoordonnees(int i, int j) {
+		this.abcisse=i;
+		this.ordonnee=j;
+		return this;
 	}
 	
 	public int getAbcisse(){

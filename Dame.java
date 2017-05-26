@@ -19,4 +19,14 @@ public class Dame extends Piece{
 		
 		return false;
 	}
+	
+		public String toString(){
+		if(this.getEstNoir()==true){
+			return ("NDam");
+		}
+		if(this.getEstNoir()==false){
+			return ("BDam");
+		}
+		return null;
+	}
 }

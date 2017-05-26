@@ -115,4 +115,14 @@ public class Fou extends Piece{
 
 		return false;
 	}
+	
+		public String toString(){
+		if(this.getEstNoir()==true){
+			return ("NFou");
+		}
+		if(this.getEstNoir()==false){
+			return ("BFou");
+		}
+		return null;
+	}
 }

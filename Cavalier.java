@@ -23,15 +23,16 @@ public class Cavalier extends Piece{
 		if(c.equals(b.getDiagD(1))|| c.equals(b.getDiagG(-1)))
 			return true;
 		return false;
+		
+		
+		
 	}
+	
 
-		public String toString(){
-		if(this.getEstNoir()==true){
-			return ("NCav");
-		}
-		if(this.getEstNoir()==false){
-			return ("BCav");
-		}
-		return null;
+	public String toString(){
+	if(this.getEstNoir())	
+		return ("NCav");
+	else
+		return ("BCav");
 	}
 }

@@ -42,6 +42,7 @@ public class PlateauDeJeu{
 	}
 	
 	
+	
 	public String toString(){
 		int i=0;
 		int j=0;

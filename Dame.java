@@ -1,5 +1,3 @@
-package echec;
-
 public class Dame extends Piece{
 
 	public Dame(boolean noir, Coordonnees c) {
@@ -13,20 +11,6 @@ public class Dame extends Piece{
 		Fou f= new Fou(this.getEstNoir(),this.getCoordonnees());
 		Tour t= new Tour(this.getEstNoir(),this.getCoordonnees());
 		
-		if(t.deplPossible(c, p) && f.deplPossible(c, p)){
-			return true;
-		}
-		
-		return false;
-	}
-	
-		public String toString(){
-		if(this.getEstNoir()==true){
-			return ("NDam");
-		}
-		if(this.getEstNoir()==false){
-			return ("BDam");
-		}
-		return null;
+		return t.deplPossible(c, p) && f.deplPossible(c, p);
 	}
 }

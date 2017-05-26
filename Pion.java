@@ -42,14 +42,14 @@ public class Pion extends Piece{
 		}
 		return false;
 	}
+	
 
 	public String toString(){
-		if(this.getEstNoir()==true){
+		if(this.getEstNoir())
 			return ("NPio");
-		}
-		if(this.getEstNoir()==false){
+		else
 			return ("BPio");
-		}
-		return null;
 	}
+
+
 }

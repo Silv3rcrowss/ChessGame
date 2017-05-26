@@ -48,4 +48,14 @@ public class Tour extends Piece{
 		}
 		return false;
 	}
+	
+		public String toString(){
+		if(this.getEstNoir()==true){
+			return ("NTou");
+		}
+		if(this.getEstNoir()==false){
+			return ("BTou");
+		}
+		return null;
+	}
 }

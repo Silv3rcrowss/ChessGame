@@ -22,13 +22,10 @@ public class Roi extends Piece{
 		return false;
 	}
 	
-		public String toString(){
-		if(this.getEstNoir()==true){
+	public String toString(){
+		if(this.getEstNoir())
 			return ("NRoi");
-		}
-		if(this.getEstNoir()==false){
+		else
 			return ("BRoi");
-		}
-		return null;
 	}
 }

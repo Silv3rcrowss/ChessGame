@@ -10,7 +10,7 @@ public class Dame extends Piece{
 
 		Fou f= new Fou(this.getEstNoir(),this.getCoordonnees());
 		Tour t= new Tour(this.getEstNoir(),this.getCoordonnees());
-		
+		//if Coordonnees Valide
 		return t.deplPossible(c, p) || f.deplPossible(c, p);
 	}
 }

@@ -50,12 +50,10 @@ public class Tour extends Piece{
 	}
 	
 		public String toString(){
-		if(this.getEstNoir()==true){
+		if(this.getEstNoir()==true)
 			return ("NTou");
-		}
-		if(this.getEstNoir()==false){
+		else
 			return ("BTou");
-		}
-		return null;
+		
 	}
 }

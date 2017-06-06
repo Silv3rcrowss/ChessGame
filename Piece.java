@@ -24,7 +24,9 @@ public abstract class Piece{
 	}
 
 	public abstract boolean deplPossible(Coordonnees c,PlateauDeJeu p);
-
+	
+	public abstract String toString();
+	
 	public void setEstNoir(boolean estNoir) {
 		this.estNoir = estNoir;
 	}

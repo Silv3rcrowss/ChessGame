@@ -119,8 +119,7 @@ public class Fou extends Piece{
 	
 	public String toString(){
 		if(this.getEstNoir()==true)
-			return ("NFou");
-		else
-			return ("BFou");
+			return (" \u2657 ");
+		return (" \u265D ");
 	}
 }

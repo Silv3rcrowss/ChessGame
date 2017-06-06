@@ -46,9 +46,9 @@ public class Pion extends Piece{
 
 	public String toString(){
 		if(this.getEstNoir())
-			return ("NPio");
+			return (" \u2659 ");
 		else
-			return ("BPio");
+			return (" \u265f ");
 	}
 
 

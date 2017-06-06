@@ -8,31 +8,19 @@ public class Cavalier extends Piece{
 	
 	
 	public boolean deplPossible(Coordonnees c, PlateauDeJeu p) {
-		Coordonnees b=new Coordonnees(this.getCoordonnees());
-		b.setAbcisse(b.getAbcisse()+1);
-		if(c.equals(b.getDiagD(1)) || c.equals(b.getDiagG(1)))
-			return true;
-		b.setAbcisse(b.getAbcisse()-2);
-		if(c.equals(b.getDiagD(-1))|| (c.equals(b.getDiagG(-1))))
-			return true;
-		b.setAbcisse(b.getAbcisse()+1);
-		b.setOrdonnee(b.getOrdonnee()-1);
-		if(c.equals(b.getDiagG(1))|| c.equals(b.getDiagD(-1)))
-			return true;
-		b.setOrdonnee(b.getOrdonnee()-2);
-		if(c.equals(b.getDiagD(1))|| c.equals(b.getDiagG(-1)))
-			return true;
-		return false;
-		
-		
+		Coordonnees d=this.getCoordonnees();
+		return ((Math.abs(c.getAbcisse()-d.getAbcisse())==2 && Math.abs(c.getOrdonnee()-d.getOrdonnee())==1)||
+				((Math.abs(c.getOrdonnee()-d.getOrdonnee())==2) && Math.abs(c.getAbcisse()-d.getAbcisse())==1)&& 
+				p.getCase(c).getEstNoir()!=this.getEstNoir());
 		
 	}
 	
 
+
 	public String toString(){
 	if(this.getEstNoir())	
-		return ("NCav");
+		return (" \u2658 ");
 	else
-		return ("BCav");
+		return (" \u265E ");
 	}
 }

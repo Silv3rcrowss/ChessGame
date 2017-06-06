@@ -135,10 +135,11 @@ public class Coordonnees{
 		
 		return flag;
 	}
-
+	
 	public boolean equals(Object o){
 		if(o instanceof Coordonnees)
 			return (this.abcisse==((Coordonnees) o).getAbcisse()&& this.ordonnee==((Coordonnees) o).getOrdonnee());
 		return false;
+		
 }	
 }

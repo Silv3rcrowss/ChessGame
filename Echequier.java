@@ -3,7 +3,7 @@ public class Echequier {
 
 	public static void main(String[] args) {
 		PlateauDeJeu p=new PlateauDeJeu();
-		Pion x=new Pion(false, false, new Coordonnees(0,0));
+		/*Pion x=new Pion(false, false, new Coordonnees(0,0));
 		p.setCase(new Coordonnees(0,1) , x);
 		Pion y=new Pion(true,true,new Coordonnees(0,0));
 		p.setCase(new Coordonnees(5,2),y);
@@ -23,8 +23,9 @@ public class Echequier {
 		p.setCase(new Coordonnees(5,5), cav);
 		p.deplPiece(new Coordonnees(3,4),cav);
 		System.out.println(p);
-		p.deplPiece(new Coordonnees(4,6),cav);
+		p.deplPiece(new Coordonnees(1,6),cav);*/
 		System.out.println(p);
+		//While ! echec et mat
 		
 				
 	

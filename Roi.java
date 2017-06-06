@@ -1,5 +1,3 @@
-package echec;
-
 public class Roi extends Piece{
 
 	public Roi(boolean noir, Coordonnees c) {
@@ -22,10 +20,28 @@ public class Roi extends Piece{
 		return false;
 	}
 	
-	public String toString(){
+	public boolean echecRoi(PlateauDeJeu p){
+		for(int i=0;i<8;i++){
+			for(int j=0;j<8;j++){
+				if(p.getCase(new Coordonnees(i,j)).getEstNoir()!=this.getEstNoir() && p.getCase(new Coordonnees(i,j)).deplPossible(new Coordonnees(this.getCoordonnees()), p)){
+					return true;
+				}
+			}
+		}
+		return false;
+		
+	}
+	
+	public boolean échecEtMat(PlateauDeJeu p){
+		return true; // si pour tout les deplacements possible du roi un deplacement d'une pièce adverse y est possible !
+					// Et OUI MON GARRRS BOUCLE IMBRIQUE ET C'EST REGLEEE!
+	}
+
+	@Override
+	public String toString() {
 		if(this.getEstNoir())
-			return ("NRoi");
+			return (" \u2654 ");
 		else
-			return ("BRoi");
+			return (" \u265A ");
 	}
 }

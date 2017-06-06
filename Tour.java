@@ -48,12 +48,11 @@ public class Tour extends Piece{
 		}
 		return false;
 	}
-	
-		public String toString(){
+
+	@Override
+	public String toString() {
 		if(this.getEstNoir()==true)
-			return ("NTou");
-		else
-			return ("BTou");
-		
+			return (" \u2656 ");
+		return (" \u265C ");
 	}
 }

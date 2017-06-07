@@ -5,7 +5,7 @@ public class Roi extends Piece{
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
+
 	public boolean deplPossible(Coordonnees c, PlateauDeJeu p) {
 		int j= this.getCoordonnees().getAbcisse();
 		int i= this.getCoordonnees().getOrdonnee();
@@ -32,12 +32,29 @@ public class Roi extends Piece{
 		
 	}
 	
-	public boolean échecEtMat(PlateauDeJeu p){
-		return true; // si pour tout les deplacements possible du roi un deplacement d'une pièce adverse y est possible !
-					// Et OUI MON GARRRS BOUCLE IMBRIQUE ET C'EST REGLEEE!
+	public boolean dangerRoi(PlateauDeJeu p){
+		for(int i=0;i<8;i++){
+			for(int j=0;j<8;j++){
+				if(this.deplPossible(new Coordonnees(i,j), p)){
+					for(int x=0;x<8;x++){
+						for(int y=0;y<8;y++){
+							if(p.getCase(new Coordonnees(x,y))!=null && !p.getCase(new Coordonnees(x,y)).deplPossible(new Coordonnees(i,j), p));
+							return false;
+						}
+					}
+				}
+			}
+		}
+		return true;
 	}
 
-	@Override
+	
+	public boolean échecEtMat(PlateauDeJeu p){
+		return true;
+	}
+	
+
+
 	public String toString() {
 		if(this.getEstNoir())
 			return (" \u2654 ");

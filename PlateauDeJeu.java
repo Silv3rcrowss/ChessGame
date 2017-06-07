@@ -1,7 +1,7 @@
 public class PlateauDeJeu{
 	private Piece[] Echequier;
 	private static final int NB_CASES=64;
-	boolean tourJoueur=true;
+	public static boolean tourJoueur=true;
 	
 
 
@@ -9,6 +9,8 @@ public class PlateauDeJeu{
 		this.Echequier=new Piece[NB_CASES];
 		this.init();
 	}
+	
+	
 	public void init(){
 		Echequier[0]=new Tour(false,new Coordonnees(0,0));
 		Echequier[1]=new Cavalier(false, new Coordonnees(0,1));
@@ -59,6 +61,20 @@ public class PlateauDeJeu{
 			this.setCase(c,p);
 		tourJoueur=!tourJoueur;
 	}
+	
+	public Coordonnees getRoi(boolean noir){
+		for(int i =0;i<8;i++){
+			for(int j=0;i<8;i++){
+				if(this.getCase(new Coordonnees(i,j))!=null && this.getCase(new Coordonnees(i,j)) instanceof Roi && this.getCase(new Coordonnees(i,j)).getEstNoir()==noir)
+					return new Coordonnees(i,j);
+			}
+		}
+		return null;
+	}
+	
+	/*public boolean echecEtMat(){
+		Piece p=new P
+	}*/
 	
 	
 	

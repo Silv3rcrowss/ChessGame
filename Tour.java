@@ -49,7 +49,7 @@ public class Tour extends Piece{
 		return false;
 	}
 
-	@Override
+
 	public String toString() {
 		if(this.getEstNoir()==true)
 			return (" \u2656 ");

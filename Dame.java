@@ -4,8 +4,12 @@ public class Dame extends Piece{
 		super(noir, c);
 		// TODO Auto-generated constructor stub
 	}
-
-	@Override
+	
+	public Dame(Dame D) {
+		super(D);
+		// TODO Auto-generated constructor stub
+	}
+	
 	public boolean deplPossible(Coordonnees c, PlateauDeJeu p) {
 
 		Fou f= new Fou(this.getEstNoir(),this.getCoordonnees());
@@ -14,7 +18,6 @@ public class Dame extends Piece{
 		return t.deplPossible(c, p) && f.deplPossible(c, p);
 	}
 
-	@Override
 	public String toString() {
 		if(this.getEstNoir()==true)
 			return (" \u2655 ");

@@ -176,6 +176,19 @@ public class PlateauDeJeu{
             e.printStackTrace();
         }   
     }
+	public void promotion(){
+		int i;
+		for(i=0;i<8;i++){
+			Coordonnees c =new Coordonnees(0,i);
+			if(this.getCase(c) instanceof Pion){
+				this.setCase(c, new Dame(false, c));
+			}
+			Coordonnees c1 =new Coordonnees(7,i);
+			if(this.getCase(c1) instanceof Pion){
+				this.setCase(c, new Dame(true, c1));
+			}
+		}
+	}
 	
 	public String toString(){
 		int i=0;

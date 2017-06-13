@@ -23,4 +23,10 @@ public class Dame extends Piece{
 			return (" \u2655 ");
 		return (" \u265B ");
 	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "Dame";
+	}
 }

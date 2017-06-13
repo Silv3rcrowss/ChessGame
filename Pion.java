@@ -1,16 +1,14 @@
 public class Pion extends Piece{
 	private boolean aBouge=false;
-	private boolean estAuSud;
 
-	public Pion(boolean noir,boolean estAuSud, Coordonnees c){
+	public Pion(boolean noir, Coordonnees c){
 		super(noir,c);
-		this.estAuSud=estAuSud;
 	}
 
 	public boolean deplPossible(Coordonnees c,PlateauDeJeu p){
 		Coordonnees b=this.getCoordonnees();
 		if(c.coordonneesValides()){
-			if(this.estAuSud){
+			if(this.getEstNoir()){
 				if((c.getAbcisse()<=(b.getAbcisse()-2)|| c.getAbcisse()<=b.getAbcisse()-1) && c.getOrdonnee()==b.getOrdonnee() && p.getCase(c)==null){
 					if(!aBouge || c.getAbcisse()==(b.getAbcisse()-1)){
 						aBouge=true;
@@ -49,6 +47,12 @@ public class Pion extends Piece{
 			return (" \u2659 ");
 		else
 			return (" \u265f ");
+	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "Pion";
 	}
 
 

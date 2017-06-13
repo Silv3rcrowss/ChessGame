@@ -1,7 +1,10 @@
+import java.io.*;
+import java.util.*;
+
 public class PlateauDeJeu{
 	private Piece[] Echequier;
 	private static final int NB_CASES=64;
-	public static boolean tourJoueur=true;
+	public static boolean tourJoueur=false;
 	
 
 
@@ -32,13 +35,13 @@ public class PlateauDeJeu{
 		for(int i=1;i<2;i++){
 			for(int j=0;j<8;j++){
 				c=new Coordonnees(i,j);
-				Echequier[c.getIndice()]=new Pion(false,false,c);
+				Echequier[c.getIndice()]=new Pion(false,c);
 			}
 		}
 		for(int i=6;i>5;i--){
 			for (int j=0;j<8 ;j++){
 				c=new Coordonnees(i,j);
-				Echequier[c.getIndice()]=new Pion(true,true,c);
+				Echequier[c.getIndice()]=new Pion(true,c);
 			}	
 		}
 	}
@@ -57,26 +60,122 @@ public class PlateauDeJeu{
 	}
 	
 	public void deplPiece(Coordonnees c,Piece p){
-		if( c.coordonneesValides() && p.deplPossible(c, this)&& (!c.equals(p.getCoordonnees())) && tourJoueur==p.getEstNoir())
+		if( c.coordonneesValides() && p.deplPossible(c, this)&& (!c.equals(p.getCoordonnees())) && tourJoueur==p.getEstNoir()){
 			this.setCase(c,p);
-		tourJoueur=!tourJoueur;
+			tourJoueur=!tourJoueur;
+		}
+		else{
+			System.out.println("Vous ne pouvez pasfaire ce deplacement ! Recommencez Sempai :3");
+		}
 	}
 	
-	public Coordonnees getRoi(boolean noir){
+	public Piece getRoi(boolean noir){
 		for(int i =0;i<8;i++){
-			for(int j=0;i<8;i++){
+			for(int j=0;j<8;j++){
 				if(this.getCase(new Coordonnees(i,j))!=null && this.getCase(new Coordonnees(i,j)) instanceof Roi && this.getCase(new Coordonnees(i,j)).getEstNoir()==noir)
-					return new Coordonnees(i,j);
+					return this.getCase(new Coordonnees(i,j));
 			}
 		}
 		return null;
 	}
 	
-	/*public boolean echecEtMat(){
-		Piece p=new P
-	}*/
+	public boolean echecEtMat(){
+		if((((Roi)getRoi(true)).echecRoi(this)&&((Roi)getRoi(true)).cerneRoi(this))||
+				(((Roi)getRoi(false)).echecRoi(this) && ((Roi)getRoi(false)).cerneRoi(this)))
+			return true;
+		return false;
+		
+	}
+	
+	public boolean egalitePartie(){
+		int nbPiece=0;
+		for(int i=0;i<8;i++){
+			for(int j=0;j<8;j++){
+				if(this.getCase(new Coordonnees(i,j))!=null)
+					nbPiece++;
+			}
+		}
+		return nbPiece==2;	
+	}
+	
+	public void sauveguarde(){
+        BufferedWriter bw=null;
+        FileWriter fw=null;
+        Piece p;
+        try{
+            fw=new FileWriter("Sauveguarde");
+            bw=new BufferedWriter(fw);
+            
+            for(int i=0;i<8;i++)
+            	for(int j=0;j<8;j++){
+            		p=this.getCase(new Coordonnees(i,j));
+            		if(p!=null)
+            			bw.write(p.getType()+"\t"+p.getEstNoir()+"\t"+(p.getCoordonnees().getAbcisse()+"\t"+p.getCoordonnees().getOrdonnee())+"\n");
+            	
+            }
+            bw.close();
+            fw.close();
+             
+        }
+        catch(IOException e){
+            System.err.println("Sauveguarde Impossible");
+        }
+    }
 	
 	
+	
+	public void charger(){
+        FileReader fr = null;
+        try {
+            fr = new FileReader("Sauveguarde");
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        BufferedReader br=new BufferedReader(fr);
+        String line = null;
+        StringTokenizer st = null;
+        try {
+            line = br.readLine();
+             
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        String type;
+        Piece p=null;
+        for(int i=0;i<64;i++)
+        	this.Echequier[i]=null;//effacer tout le tableau
+        while(line!=null){
+            st=new StringTokenizer(line,"\t");
+            type=st.nextToken();
+
+            switch(type){
+            case "Pion":p=new Pion(Boolean.getBoolean(st.nextToken()),new Coordonnees(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken(),Integer.parseInt(st.nextToken()))));
+            case "Cavalier":p=new Cavalier(Boolean.getBoolean(st.nextToken()),new Coordonnees(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken(),Integer.parseInt(st.nextToken()))));
+            case "Tour":p=new Tour(Boolean.getBoolean(st.nextToken()),new Coordonnees(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken(),Integer.parseInt(st.nextToken()))));
+            case "Roi":p=new Roi(Boolean.getBoolean(st.nextToken()),new Coordonnees(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken(),Integer.parseInt(st.nextToken()))));
+            case "Dame":p=new Dame(Boolean.getBoolean(st.nextToken()),new Coordonnees(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken(),Integer.parseInt(st.nextToken()))));
+            case "Fou":p=new Fou(Boolean.getBoolean(st.nextToken()),new Coordonnees(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken(),Integer.parseInt(st.nextToken()))));
+            }
+            this.setCase(p.getCoordonnees(), p);
+            try {
+                line=br.readLine();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+             
+             
+        }
+        try {
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }   
+    }
 	
 	public String toString(){
 		int i=0;

@@ -122,4 +122,10 @@ public class Fou extends Piece{
 			return (" \u2657 ");
 		return (" \u265D ");
 	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "Fou";
+	}
 }

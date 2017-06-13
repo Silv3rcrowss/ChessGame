@@ -55,4 +55,10 @@ public class Tour extends Piece{
 			return (" \u2656 ");
 		return (" \u265C ");
 	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "Tour";
+	}
 }

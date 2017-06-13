@@ -23,4 +23,12 @@ public class Cavalier extends Piece{
 	else
 		return (" \u265E ");
 	}
+
+
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "Cavalier";
+	}
 }

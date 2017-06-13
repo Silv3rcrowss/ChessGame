@@ -23,6 +23,8 @@ public abstract class Piece{
 		this.c=new Coordonnees(c);
 	}
 
+	public abstract String getType();
+	
 	public abstract boolean deplPossible(Coordonnees c,PlateauDeJeu p);
 	
 	public abstract String toString();
@@ -31,5 +33,4 @@ public abstract class Piece{
 		this.estNoir = estNoir;
 	}
 
-	//passer toutes les pieces en
 }

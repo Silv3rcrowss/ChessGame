@@ -23,8 +23,11 @@ public class Roi extends Piece{
 	public boolean echecRoi(PlateauDeJeu p){
 		for(int i=0;i<8;i++){
 			for(int j=0;j<8;j++){
-				if(p.getCase(new Coordonnees(i,j)).getEstNoir()!=this.getEstNoir() && p.getCase(new Coordonnees(i,j)).deplPossible(new Coordonnees(this.getCoordonnees()), p)){
-					return true;
+				if(p.getCase(	new Coordonnees(i,j))!=null){
+					if(p.getCase(new Coordonnees(i,j)).getEstNoir()!=this.getEstNoir() && 
+						p.getCase(new Coordonnees(i,j)).deplPossible(new Coordonnees(this.getCoordonnees()), p)){
+						return true;
+					}
 				}
 			}
 		}
@@ -32,7 +35,7 @@ public class Roi extends Piece{
 		
 	}
 	
-	public boolean dangerRoi(PlateauDeJeu p){
+	public boolean cerneRoi(PlateauDeJeu p){
 		for(int i=0;i<8;i++){
 			for(int j=0;j<8;j++){
 				if(this.deplPossible(new Coordonnees(i,j), p)){
@@ -60,5 +63,12 @@ public class Roi extends Piece{
 			return (" \u2654 ");
 		else
 			return (" \u265A ");
+	}
+
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return "Roi";
 	}
 }
